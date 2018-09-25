@@ -47,25 +47,40 @@ if (showDest) {
 }
 
 String label = getDestLabel();
+if(label == null) { label = "no-label-yet"; }
 
+
+int URLCSELatDegrees = getCSELatDegrees();
+int URLCSELatSeconds = getCSELatSeconds();
+int URLCSELongDegrees = getCSELongDegrees();
+int URLCSELongSeconds = getCSELongSeconds();
+
+int URLDestLatDegrees = getDestLatDegrees();
+int URLDestLatSeconds = getDestLatSeconds();
+int URLDestLongDegrees = getDestLongDegrees();
+int URLDestLongSeconds = getDestLongSeconds();
 
 String url =
 /* "http://localhost:8000/maps.html?" + */
   "http://cseweb.ucsd.edu/classes/fa18/cse8a/maps.html?" +
-  "latAdeg=" + getCSELatDegrees() + "&" +
-  "latAsec=" + getCSELatSeconds() + "&" +
-  "longAdeg=" + getCSELongDegrees() + "&" +
-  "longAsec=" + getCSELongSeconds() + "&" +
-  "latBdeg=" + getDestLatDegrees() + "&" +
-  "latBsec=" + getDestLatSeconds() + "&" +
-  "longBdeg=" + getDestLongDegrees() + "&" +
-  "longBsec=" + getDestLongSeconds() + "&" +
+  "latAdeg=" + URLCSELatDegrees + "&" +
+  "latAsec=" + URLCSELatSeconds + "&" +
+  "longAdeg=" + URLCSELongDegrees + "&" +
+  "longAsec=" + URLCSELongSeconds + "&" +
+  "latBdeg=" + URLDestLatDegrees + "&" +
+  "latBsec=" + URLDestLatSeconds + "&" +
+  "longBdeg=" + URLDestLongDegrees + "&" +
+  "longBsec=" + URLDestLongSeconds + "&" +
   "label=" + label + "&" +
   "zoom=" + zoomMap + "&" +
   "showCSE=" + showCSE + "&" +
   "showDest=" + showDest + "&";
 
-System.out.println(new URI(url));
+System.out.println(label);
+System.out.println(zoomMap);
+System.out.println(showCSE);
+System.out.println(showDest);
+System.out.println(url);
 
 if (Desktop.isDesktopSupported()) {
   Desktop.getDesktop().browse(new URI(url));
