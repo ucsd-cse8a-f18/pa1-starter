@@ -50,11 +50,11 @@ int indexOfNth(String base, String toFind, int n) {
       return -1;
     }
     else {
-      baseIndex += currIndex + 1;
-      baseSuffix = substring(baseSuffix,currIndex+1,length(baseSuffix));
+      baseIndex += currIndex;
+      baseSuffix = substring(baseSuffix,currIndex+lenToFind,length(baseSuffix));
     }
   }
-  return baseIndex - 1;
+  return baseIndex + n * lenToFind;
 }
 
 int parseInt(String s) {
