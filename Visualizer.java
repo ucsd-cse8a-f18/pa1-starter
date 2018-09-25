@@ -76,10 +76,6 @@ String url =
   "showCSE=" + showCSE + "&" +
   "showDest=" + showDest + "&";
 
-System.out.println(label);
-System.out.println(zoomMap);
-System.out.println(showCSE);
-System.out.println(showDest);
 System.out.println(url);
 
 if (Desktop.isDesktopSupported()) {
