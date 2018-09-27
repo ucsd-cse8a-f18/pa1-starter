@@ -8,7 +8,6 @@
 import java.awt.Desktop;
 import java.net.URI;
 
-
 int getZoom() { return zoom; }
 
 
@@ -60,9 +59,11 @@ int URLDestLatSeconds = getDestLatSeconds();
 int URLDestLongDegrees = getDestLongDegrees();
 int URLDestLongSeconds = getDestLongSeconds();
 
-String url =
-/* "http://localhost:8000/maps.html?" + */
-  "http://cseweb.ucsd.edu/classes/fa18/cse8a/maps.html?" +
+// https://stackoverflow.com/questions/724043/http-url-address-encoding-in-java
+URI url = new URI(
+  "https",
+  "cseweb.ucsd.edu",
+  "/classes/fa18/cse8a/maps.html",
   "latAdeg=" + URLCSELatDegrees + "&" +
   "latAsec=" + URLCSELatSeconds + "&" +
   "longAdeg=" + URLCSELongDegrees + "&" +
@@ -74,12 +75,13 @@ String url =
   "label=" + label + "&" +
   "zoom=" + zoomMap + "&" +
   "showCSE=" + showCSE + "&" +
-  "showDest=" + showDest + "&";
+  "showDest=" + showDest,
+  null);
 
-System.out.println(url);
+System.out.println(url.toString());
 
 if (Desktop.isDesktopSupported()) {
-  Desktop.getDesktop().browse(new URI(url));
+  Desktop.getDesktop().browse(url);
 } else {
   System.out.println("Your system may not be supported, try running on the lab machines, or copy/paste this URL into your browser: \n" + url);
 }
