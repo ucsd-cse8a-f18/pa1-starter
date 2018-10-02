@@ -11,29 +11,23 @@ import java.net.URI;
 int getZoom() { return zoom; }
 
 
-int getCSELatDegrees() { return CSELatDegrees; }
-int getCSELatSeconds() { return CSELatSeconds; }
-int getCSELongDegrees() { return CSELongDegrees; }
-int getCSELongSeconds() { return CSELongSeconds; }
+String getCSELat() { return CSELat; }
+String getCSELong() { return CSELong; }
 String getCSELabel() { return CSELabel; }
 
-int getDestLatDegrees() { return destLatDegrees; }
-int getDestLatSeconds() { return destLatSeconds; }
-int getDestLongDegrees() { return destLongDegrees; }
-int getDestLongSeconds() { return destLongSeconds; }
+String getDestLat() { return destLat; }
+String getDestLong() { return destLong; }
 String getDestLabel() { return destLabel; }
 
 boolean showCSE = false;
-if(getCSELatDegrees() != 0 &&
-   getCSELatSeconds() != 0 &&
-   getCSELongDegrees() != 0 &&
-   getCSELongSeconds() != 0) {
+if(getCSELat() != null &&
+   getCSELong() != null) {
   showCSE = true;
 }
 
 boolean showDest = false;
-if(getDestLatDegrees() != 0 &&
-   getDestLongDegrees() != 0) {
+if(getDestLat() != null &&
+   getDestLong() != null) {
   showDest = true;
 }
 
@@ -49,29 +43,21 @@ String label = getDestLabel();
 if(label == null) { label = "no-label-yet"; }
 
 
-int URLCSELatDegrees = getCSELatDegrees();
-int URLCSELatSeconds = getCSELatSeconds();
-int URLCSELongDegrees = getCSELongDegrees();
-int URLCSELongSeconds = getCSELongSeconds();
+String URLCSELat = getCSELat();
+String URLCSELong = getCSELong();
 
-int URLDestLatDegrees = getDestLatDegrees();
-int URLDestLatSeconds = getDestLatSeconds();
-int URLDestLongDegrees = getDestLongDegrees();
-int URLDestLongSeconds = getDestLongSeconds();
+String URLDestLat = getDestLat();
+String URLDestLong = getDestLong();
 
 // https://stackoverflow.com/questions/724043/http-url-address-encoding-in-java
 URI url = new URI(
   "https",
   "cseweb.ucsd.edu",
   "/classes/fa18/cse8a/maps.html",
-  "latAdeg=" + URLCSELatDegrees + "&" +
-  "latAsec=" + URLCSELatSeconds + "&" +
-  "longAdeg=" + URLCSELongDegrees + "&" +
-  "longAsec=" + URLCSELongSeconds + "&" +
-  "latBdeg=" + URLDestLatDegrees + "&" +
-  "latBsec=" + URLDestLatSeconds + "&" +
-  "longBdeg=" + URLDestLongDegrees + "&" +
-  "longBsec=" + URLDestLongSeconds + "&" +
+  "latA=" + URLCSELat + "&" +
+  "longA=" + URLCSELong + "&" +
+  "latB=" + URLDestLat + "&" +
+  "longB=" + URLDestLong + "&" +
   "label=" + label + "&" +
   "zoom=" + zoomMap + "&" +
   "showCSE=" + showCSE + "&" +
