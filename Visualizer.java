@@ -1,8 +1,3 @@
-// To test, before running, do "python -m SimpleHTTPServer" from this directory
-// URL params don't work from file:/// urls; this is an easy way to start a
-// local server
-
-
 // Browser opening code courtesy of
 // https://stackoverflow.com/a/17950164/2718315
 import java.awt.Desktop;
