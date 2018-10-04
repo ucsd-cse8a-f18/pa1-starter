@@ -33,7 +33,8 @@ if(getDestLat() != null &&
 
 int zoomMap = 2;
 if (showCSE) {
-  zoomMap = 5;
+  if (getZoom() != 0) { zoomMap = getZoom(); }
+  else { zoomMap = 5;}
 }
 if (showDest) {
   zoomMap = getZoom();
