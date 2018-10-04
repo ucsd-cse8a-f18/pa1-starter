@@ -86,11 +86,6 @@ int count(String base, String toFind) {
   return count;
 }
 
-// NOTE(joe): The cast to integer is safe until 2038,
-// See: https://en.wikipedia.org/wiki/Year_2038_problem
-// NOTE(mia): Sadly, no.  The dates in the potholes file overflow.
-// Changed to long.
-
 long dateMonthDayYearTime(String date) {
   try {
     final DateFormat d = new SimpleDateFormat("MMMMM dd yyyy hh:mm z");
